@@ -44,8 +44,8 @@ gams_finder <- function(){
     if (length(gams_versions) > 1) {
       message("Multiple GAMS installation detected, using latest GAMS version")
       if(max(gams_versions) < 41) {
-        message("See https://www.gams.com/download/")
-        stop("GAMS version 41 and above required.")
+        stop("GAMS version 41 and above required.
+             See https://www.gams.com/download/")
         }
       gams_dir <- grep(pattern = max(gams_versions),
                        x = gams_version_check,
