@@ -1,7 +1,7 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-# KIRAN
+# Key IMPACT R-Archive Network (KIRAN)
 
 <!-- badges: start -->
 <!-- badges: end -->

@@ -13,7 +13,7 @@ knitr::opts_chunk$set(
 )
 ```
 
-# KIRAN
+# Key IMPACT R-Archive Network (KIRAN)
 
 <!-- badges: start -->
 
