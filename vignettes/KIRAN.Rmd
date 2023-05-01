@@ -57,7 +57,7 @@ the following command on the "Console" of your R/R-Studio session and press ente
 
 ```{r, eval=FALSE}
 # Installing from r-universe of IFPRI
-install.packages('devtools', 
+install.packages('KIRAN', 
                  repos='http://https://ifpri.r-universe.dev/',
                  dependencies = TRUE)
 
