@@ -1,7 +1,7 @@
 Package: KIRAN
 Type: Package
 Title: Package for setting up Key IMPACT R-Archive Network suite of packages
-Version: 0.1.0
+Version: 1.0.0
 Authors@R: c(
     person("Abhijeet", "Mishra", , "A.Mishra@cgiar.org", role = c("aut", "cre"))
     )
