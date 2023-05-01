@@ -1,0 +1,17 @@
+Package: KIRAN
+Type: Package
+Title: Package for setting up Key IMPACT R-Archive Network suite of packages
+Version: 0.1.0
+Authors@R: c(
+    person("Abhijeet", "Mishra", , "A.Mishra@cgiar.org", role = c("aut", "cre"))
+    )
+Description: Establishes the KIRAN suite of R based  packages.
+License: GPL (>= 3)
+Encoding: UTF-8
+RoxygenNote: 7.2.3
+Imports:
+    devtools (>= 2.4.5)
+Suggests: 
+    knitr (>= 1.42),
+    rmarkdown (>= 2.21)
+VignetteBuilder: knitr
