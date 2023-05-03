@@ -5,20 +5,20 @@
 #'
 #' @examples
 #' \dontrun{
-#' rtools_finder()
+#' scanRtools()
 #' }
 
-rtools_finder <- function(){
+scanRtools <- function(){
   if (Sys.info()["sysname"] == "Windows") {
-    cat("Scanning for Rtools")
+    message("Scanning for Rtools")
     x <- names(grep(pattern = "rtools",
                     x = Sys.getenv(),
                     fixed = FALSE,
                     value = TRUE))
     if (length(x) > 0) {
-      cat("Found Rtools inclusion as system variables in", x)
+      cat("Rtools is included as system variables in ", x, "\n")
     } else {
       stop("Rtools not found in system variables.")
     }
-  } else cat("Skipping Rtools check on non-windows machine")
+  } else message("Skipping Rtools check on non-windows machine")
 }

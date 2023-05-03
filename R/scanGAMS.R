@@ -5,13 +5,13 @@
 #'
 #' @examples
 #' \dontrun{
-#' gams_finder()
+#' scanGAMS()
 #' }
 
-gams_finder <- function(){
+scanGAMS <- function(){
   gams_dir_sys_path <- gams_dir <- NULL
   if (Sys.info()["sysname"] == "Windows") {
-    cat("Scanning for GAMS in environment variables \n")
+    message("Scanning for GAMS in environment variables \n")
     x <- grep(pattern = "GAMS",
               x = Sys.getenv(),
               fixed = FALSE,
@@ -20,7 +20,7 @@ gams_finder <- function(){
     x_name <- names(x)
 
     if (length(x_name) > 0) {
-      cat("Found GAMS inclusion as system variables in", x_name,"\n")
+      message("Found GAMS inclusion as system variables in", x_name,"\n")
 
       gams_dir_sys_path <- grep(pattern = "gams",
                             x = unlist(strsplit(x, ";")),
@@ -31,7 +31,7 @@ gams_finder <- function(){
       gams_dir_sys_path <- gsub("\\\\", "/", gams_dir_sys_path)
     }
 
-    cat("Scanning for GAMS in default locations \n")
+    message("Scanning for GAMS in default locations \n")
     gams_check <- grep(pattern = "GAMS",
                        x = list.dirs(path = "C:/",
                                      recursive = FALSE),
@@ -39,7 +39,6 @@ gams_finder <- function(){
                        value = TRUE)
     gams_version_check <- list.dirs(gams_check, recursive = FALSE)
     gams_versions <- as.numeric(gsub("\\D", "", gams_version_check))
-    if (gams_versions)
 
     if (length(gams_versions) > 1) {
       message("Multiple GAMS installation detected, using latest GAMS version")
@@ -76,12 +75,12 @@ gams_finder <- function(){
     }
 
     if (is.null(gams_dir_sys_path) & is.null(gams_dir)) {
-      cat("GAMS not found in system variables. Returning NULL \n")
-      cat("See", "https://www.gams.com/latest/docs/UG_WIN_INSTALL.html \n")
+      message("GAMS not found in system variables. Returning NULL \n")
+      message("See", "https://www.gams.com/latest/docs/UG_WIN_INSTALL.html \n")
       stop("Cannot proceed without basic GAMS installation")
     }
 
-  } else cat("Skipping GAMS check on non-windows machine")
+  } else message("Skipping GAMS check on non-windows machine")
 
   return(gams_dir)
 }

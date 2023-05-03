@@ -2,38 +2,44 @@
 #'
 #' @return NULL
 #' @importFrom utils install.packages
-#' @importFrom devtools install_github
 #' @export
 #'
 #' @examples
 #' \dontrun{
-#' install_KIRAN()
+#' setKiran()
 #' }
 
-install_KIRAN <- function(){
-  message("Seeting repositories ....")
-  options(repos = c(CRAN  = "https://cloud.r-project.org/",
-                    PIK   = "https://rse.pik-potsdam.de/r/packages",
-                    KIRAN = "https://ifpri.r-universe.dev"))
-  message("Following repos added for package installation ....")
-  cat(getOption("repos"),"\n")
+setKiran <- function(){
+
+  KIRAN::scanRtools()
+
+  KIRAN::setLibs()
+
+  default_library <- KIRAN::setLibs(export = TRUE)
+
+  KIRAN::setRepos()
 
   message("Installing core dependencies for 'gamstransfer' package")
-  install.packages("R6", dependencies = TRUE)
-  install.packages("R.utils", dependencies = TRUE)
-  install.packages("Rcpp", dependencies = TRUE)
+  install.packages("R6", dependencies = TRUE, lib = default_library)
+  install.packages("R.utils", dependencies = TRUE, lib = default_library)
+  install.packages("Rcpp", dependencies = TRUE, lib = default_library)
 
   message("Installing devtools and its dependencies")
-  install.packages("devtools", dependencies = TRUE, lib = .libPaths()[1])
+  install.packages("devtools",
+                   dependencies = TRUE,
+                   lib = default_library)
 
   message("Installing magclass and its dependencies")
-  install_github("pik-piam/magclass",
+  devtools::install_github("pik-piam/magclass",
                            dependencies = TRUE,
                            upgrade = "never",
-                           force = TRUE)
+                           force = TRUE, lib = default_library)
 
   message("Installing 'gamstransfer' package")
-  gams_path <- paste0(gams_finder(),"/apifiles/R/gamstransfer/source/gamstransfer_r.tar.gz")
+  gams_path <-
+    paste0(scanGAMS(),
+           "/apifiles/R/gamstransfer/source/gamstransfer_r.tar.gz")
+
   install.packages(gams_path, dependencies = TRUE)
 
   message("Installing KIRAN suite of packages ....")
