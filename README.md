@@ -87,7 +87,7 @@ enter
 
 ``` r
 library(KIRAN)
-install_KIRAN()
+setKiran()
 ```
 
 The command above attempts to install all the packages needed for the

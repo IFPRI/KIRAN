@@ -89,7 +89,7 @@ Go back to your R/R-Studio session and type the following and press enter
 
 ```{r, eval=FALSE}
 library(KIRAN)
-install_KIRAN()
+setKiran()
 
 ```
 
