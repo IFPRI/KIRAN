@@ -15,7 +15,13 @@ knitr::opts_chunk$set(
 
 # Key IMPACT R-Archive Network (KIRAN)
 
+### Status
 <!-- badges: start -->
+[![:name status badge](https://ifpri.r-universe.dev/badges/:name)](https://ifpri.r-universe.dev)
+[![:registry status badge](https://ifpri.r-universe.dev/badges/:registry)](https://ifpri.r-universe.dev)
+[![KIRAN status badge](https://ifpri.r-universe.dev/badges/KIRAN)](https://ifpri.r-universe.dev)
+[![R-CMD-check](https://github.com/IFPRI/KIRAN/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/IFPRI/KIRAN/actions/workflows/R-CMD-check.yaml)
+[![license](https://img.shields.io/badge/Licence-GPL%20(%3E%3D%203)-red)](https://github.com/IFPRI/KIRAN/blob/master/LICENSE.md)
 
 <!-- badges: end -->
 
